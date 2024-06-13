@@ -1,0 +1,160 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+* 
+{
+    font-family: 'PT Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body 
+{
+    min-height: 100vh;
+    background-image: linear-gradient(to right bottom, #09162a, #0d284d, #113b72, #194f99, #2663c2);
+    background-size: cover;
+    background-position: center;
+}
+/* header */
+.header
+{
+    padding: 25px 100px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: left;
+    z-index: 100;
+}
+.navbar > a 
+{
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
+    margin-right: 75px;
+    transition: .3s ease-in-out;
+}
+.navbar > a:hover
+{
+    color: lightgrey;
+    text-decoration: underline;
+}
+/* title */
+.index-title
+{
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.index-title > h1
+{
+    color: white;
+    font-size: 100px;
+}
+/* about */
+.about
+{
+    margin: auto;
+    width: 50%;
+    height: auto;
+    text-align: center;
+}
+.about > h2
+{
+    color: white;
+    font-size: 75px;
+    padding: 50px;
+}
+.about > h3
+{
+    color: white;
+    font-size: 50px;
+    padding: 30px;
+}
+.about > p
+{
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    font-size: 20px;
+    border: 10px solid white;
+    border-radius: 30px;
+    padding: 50px;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.about > p > a 
+{
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+}
+.about > p > a:hover 
+{
+    text-decoration: underline;
+}
+
+/* photo gallery */
+.gallery 
+{
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    overflow: hidden;
+    border: 5px solid white;
+    border-radius: 10px;
+}
+
+.slides 
+{
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.slide 
+{
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img 
+{
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+}
+
+.prev, .next 
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 24px;
+}
+
+.prev {
+    left: 10px; 
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
