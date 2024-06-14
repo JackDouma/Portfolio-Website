@@ -5,6 +5,7 @@ let lastGlow = 0;
 // run on page load
 document.addEventListener('DOMContentLoaded', function() {
     createBackgroundStars();
+    randomShootingStars();
 });
 
 function changeSlide(direction) 
@@ -56,6 +57,19 @@ function StarEffect(e)
     }
 
     lastStar = time;
+    
+    // do not make stars while hovering over clickable
+    let target = e.target;
+    while (target) 
+    {
+        if (target.tagName === 'A' || target.tagName === 'BUTTON' || (target.tagName === 'INPUT' && (target.type === 'button' || target.type === 'submit'))) 
+        {
+            return; 
+        }
+
+        target = target.parentElement;
+    }
+
 
     // get coords
     let x = e.clientX + window.scrollX;
@@ -109,23 +123,19 @@ function GlowEffect(e)
 // create and place stars randomly for background
 function createBackgroundStars() 
 {
-    const totalStars = 100;
+    const totalStars = 200;
 
     for (let i = 0; i < totalStars; i++) 
     {
-        let star = document.createElement('i');
-        star.classList.add('backgroundStar', 'fas', 'fa-star');
+        let star = document.createElement('div');
+        star.classList.add('backgroundStar');
 
         // Randomize position
-        let x = Math.random() * document.documentElement.scrollWidth;
-        let y = Math.random() * document.documentElement.scrollHeight;
+        let x = Math.random() * window.innerWidth - 20;
+        let y = Math.random() * document.documentElement.scrollHeight - 20;
 
         star.style.left = x + 'px';
         star.style.top = y + 'px';
-
-        // randomize rotation between -20 and +20 degrees
-        let tilt = (Math.random() - 0.5) * 40;
-        star.style.transform = `rotate(${tilt}deg)`;
 
         // randomize animation delay for twinkling effect
         star.style.animationDelay = Math.random() * 5 + 's';
@@ -133,3 +143,70 @@ function createBackgroundStars()
         document.body.appendChild(star);
     }
 }
+
+function createShootingStar() 
+{
+    // create a shooting star
+    let shootingStar = document.createElement('div');
+    shootingStar.classList.add('shootingStar');
+
+    // randomize start position
+    let x, y
+    if (Math.random() > 0.5)
+    {
+        x = window.innerWidth - 100;
+    }
+    else
+    {
+        x = 100;
+    }
+    y = Math.random() * document.documentElement.scrollHeight / 2;
+
+    shootingStar.style.left = x + 'px';
+    shootingStar.style.top = y + 'px';
+
+    // determine direction based on star position
+    if (x > window.innerWidth / 2) 
+    {
+        // down left
+        shootingStar.style.animation = 'shootingLeft 1.5s linear forwards';
+        shootingStar.classList.add('left');
+    } 
+    else 
+    {
+        // down right
+        shootingStar.style.animation = 'shootingRight 1.5s linear forwards';
+        shootingStar.classList.add('right');
+    }
+
+    document.body.appendChild(shootingStar);
+
+    // remove shooting star after animation is done
+    shootingStar.addEventListener('animationend', () => {
+        document.body.removeChild(shootingStar);
+    });
+}
+
+// create shooting stars at random intervals
+function randomShootingStars() 
+{
+    // 50% chance every 3 seconds
+    setInterval(() => {
+        if (Math.random() > 0.5) 
+        {
+            createShootingStar();
+        }
+    }, 3000); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
