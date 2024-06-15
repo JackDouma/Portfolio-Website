@@ -381,9 +381,10 @@ body
 }
 
 /* expertise */
-.expertise {
+.expertise 
+{
     margin: auto;
-    width: 70%; 
+    width: 70%;
     height: auto;
     text-align: center;
     z-index: 100;
@@ -407,10 +408,15 @@ body
 
 .skill 
 {
-    background: rgba(255, 255, 255, 0.1); 
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     padding: 15px;
     font-size: 20px;
     border-radius: 10px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.skill.hacker-effect 
+{
+    color: #20C20E;
 }

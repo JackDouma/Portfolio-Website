@@ -4,8 +4,60 @@ let lastGlow = 0;
 
 // run on page load
 document.addEventListener('DOMContentLoaded', function() {
+    //////////////////////////
+    // create space effects //
+    //////////////////////////
     createBackgroundStars();
     randomShootingStars();
+
+    //////////////////////////
+    // create hacker effect //
+    //////////////////////////
+    const skills = document.querySelectorAll('.skill');
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&?";
+    const changeSpeed = 100;
+    const revealDelay = 500;
+
+
+    const applyHackerEffect = (skill) => {
+        // make text green
+        skill.classList.add('hacker-effect');
+
+        // repeat function that makes the text random over and over again
+        let interval = setInterval(() => {
+            skill.innerText = Array.from({ length: skill.dataset.originalText.length },
+                () => letters[Math.floor(Math.random() * letters.length)]).join('');
+        }, changeSpeed);
+
+        return interval;
+    };
+
+    // save original text
+    skills.forEach(skill => {
+        skill.dataset.originalText = skill.innerText;
+    });
+
+    // give all text the hacker effect
+    let intervals = [];
+    skills.forEach(skill => {
+        intervals.push(applyHackerEffect(skill));
+    });
+
+    // reveal original words 1 by 1
+    let currentIndex = 0;
+    const revealNextWord = () => {
+        if (currentIndex < skills.length) 
+        {
+            clearInterval(intervals[currentIndex]);
+            skills[currentIndex].innerText = skills[currentIndex].dataset.originalText;
+            skills[currentIndex].classList.remove('hacker-effect');
+
+            currentIndex++;
+            setTimeout(revealNextWord, revealDelay);
+        }
+    };
+
+    setTimeout(revealNextWord, revealDelay);
 });
 
 function changeSlide(direction) 
@@ -199,7 +251,7 @@ function randomShootingStars()
     }, 3000); 
 }
 
-
+document.querySelector('.skill')
 
 
 
