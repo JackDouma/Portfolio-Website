@@ -214,7 +214,7 @@ body
 
 
 /* title */
-.index-title
+.title
 {
     width: 100%;
     height: 75vh;
@@ -223,7 +223,7 @@ body
     justify-content: center;
     z-index: 100;
 }
-.index-title > h1
+.title > h1
 {
     color: white;
     font-size: 100px;
@@ -339,26 +339,29 @@ body
 }
 
 /* Footer */
-.footer {
-    background: #0d284d; /* Dark blue background to match your theme */
+.footer 
+{
+    background: #0d284d;
     padding: 20px 0;
     text-align: center;
-    position: fixed; /* Keeps the footer at the bottom */
+    position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
     z-index: 100;
 }
 
-.footerContent {
+.footerContent 
+{
     display: flex;
-    flex-wrap: wrap; /* Allow the items to wrap if needed */
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Space between the links */
+    gap: 20px;
 }
 
-.footerLink {
+.footerLink 
+{
     color: white;
     text-decoration: none;
     font-size: 20px;
@@ -367,10 +370,47 @@ body
     align-items: center;
 }
 
-.footerLink i {
-    margin-right: 8px; /* Space between the icon and text */
+.footerLink i 
+{
+    margin-right: 8px;
 }
 
-.footerLink:hover {
-    color: #67e8f9; /* Light blue color on hover to match your theme */
+.footerLink:hover 
+{
+    color: #67e8f9;
+}
+
+/* expertise */
+.expertise {
+    margin: auto;
+    width: 70%; 
+    height: auto;
+    text-align: center;
+    z-index: 100;
+}
+
+.expertise > h2 
+{
+    color: white;
+    font-size: 75px;
+    padding: 50px;
+}
+
+.skillGrid 
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.skill 
+{
+    background: rgba(255, 255, 255, 0.1); 
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: background 0.3s ease;
 }
