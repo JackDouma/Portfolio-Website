@@ -114,7 +114,7 @@ function StarEffect(e)
     let target = e.target;
     while (target) 
     {
-        if (target.tagName === 'A' || target.tagName === 'BUTTON' || (target.tagName === 'INPUT' && (target.type === 'button' || target.type === 'submit'))) 
+        if (target.tagName === 'A' || target.tagName === 'BUTTON' || (target.tagName === 'INPUT' && (target.type === 'button' || target.type === 'submit') || target.classList.contains('projectCard')))
         {
             return; 
         }

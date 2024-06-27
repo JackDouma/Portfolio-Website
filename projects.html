@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!------------>
+    <!-- Header -->
+    <!------------>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="This is a portfolio website for Jackson Douma">
+        <meta name="keywords" content="Jackson Douma, Jack Douma, Portfolio Website, Georgian College, Lakehead University, Computer Science">
+        <meta name="author" content="Jackson Douma">
+        <title>Projects | Jackson Douma</title>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://kit.fontawesome.com/df4d629805.js" crossorigin="anonymous"></script>
+    </head>
+
+    <!---------->
+    <!-- Body -->
+    <!---------->
+    <body>
+        <div onmousemove="MouseEffects(event)">
+            <!-- header -->
+            <header class="header">
+                <nav class="navbar">
+                    <a href="index.html">Home</a>
+                    <a href="expertise.html">Expertise</a>
+                    <a href="projects.html">Projects</a>
+                </nav>
+            </header>
+
+            <section class="title">
+                <h1><span class="type"></span></h1>
+            </section>
+            <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+            <script>
+                // from https://github.com/mattboldt/typed.js
+                var typed = new Typed (".type",{
+                    strings: ["My Projects"],
+                    typeSpeed: 150,
+                    looped: false
+                });
+            </script>
+
+            <section class="projects">
+                <div class="projectCard infoLeft">
+                    <div class="projectInfo">
+                        <h2>Restaurant Management Software</h2>
+                        <p>A four person semester long project able to be used by owners, managers, and customers capable of tracking inventory, ordering food, and general restaurant management. This project used ASP.NET and Microsoft SQL Server Management Studio, which was deployed using Azure. A full overview of this large project can be found <a href="Restaurant-Management-Software.pdf" target="_blank">HERE</a>. </p>
+                        <a href="https://github.com/hylianmike/burgerBurger" target="_blank" class="githubLink">GitHub Link</a>
+                    </div>
+                    <div class="projectImage">
+                        <img src="img/project1.png" alt="Project 1 Image">
+                    </div>
+                </div>
+                <div class="projectCard infoRight">
+                    <div class="projectImage">
+                        <img src="img/project2.jpg" alt="Project 2 Image">
+                    </div>
+                    <div class="projectInfo">
+                        <h2>Esports Stat Tracking Website</h2>
+                        <p>A summer project made to track and display data of teams and players in an organized manner. This website was made for an esports organization to help organize and promote their teams. Admins are able to add teams and players and are able to submit scores, which would then automatically update the stats of them. This website is fully made with PHP with simple CSS and bootstrap.</p>
+                        <a href="https://github.com/JackDouma/Falling-Sky-Website" target="_blank" class="githubLink">GitHub Link</a>
+                    </div>
+                </div>
+                <div class="projectCard infoLeft">
+                    <div class="projectInfo">
+                        <h2>Android Grade Tracking App</h2>
+                        <p>The purpose of this application is to help students track how well they are doing in their courses. When you login, you can add a course, and in each course you can add any amount of grades as well as the overall weight of the grades. When you select a course, you will see a list of all your grades, and your current grade in that course. The app was made using Android Studio and Kotlin, and was uploaded to the google play store(since been taken down).</p>
+                        <a href="https://github.com/JackDouma/GradeTracker" target="_blank" class="githubLink">GitHub Link</a>
+                    </div>
+                    <div class="projectImage">
+                        <img src="img/project3.png" alt="Project 3 Image">
+                    </div>
+                </div>
+                <div class="projectCard infoRight">
+                    <div class="projectImage">
+                        <img src="img/project4.png" alt="Project 4 Image">
+                    </div>
+                    <div class="projectInfo">
+                        <h2>LinkedIn Recommender and Search System</h2>
+                        <p>This is a group of 3 final project in Big Data, that used a dataset of every job posting on LinkedIn, and allowed users to search and select jobs based on search queries. Based on the jobs they applied for, they would be recommended new jobs using collaborative filtering, previous search terms, and similar jobs they have applied for. This project uses HTML rendered dynamically through the Flask library in Python. Bootstrap was used for visuals.</p>
+                        <a href="https://github.com/JackDouma/Big-Data-LinkedIn-Recommender-System" target="_blank" class="githubLink">GitHub Link</a>
+                    </div>
+                </div>
+            </section>
+            <br><br><br><br><br><br> 
+        </div>
+    </body>
+
+    <!------------>
+    <!-- Footer -->
+    <!------------>
+    <footer class="footer">
+        <div class="footerContent">
+            <a href="https://www.linkedin.com/in/jack-douma-10204722b/" target="_blank" class="footerLink">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/JackDouma" target="_blank" class="footerLink">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="JacksonDoumaResume.pdf" target="_blank" download class="footerLink">
+                <i class="fas fa-file-download"></i> Resume
+            </a>
+            <a href="tel:+17053215945" class="footerLink">
+                <i class="fas fa-phone-alt"></i> 705-321-5945
+            </a>
+            <a href="mailto:jackdouma0@gmail.com" class="footerLink">
+                <i class="fas fa-envelope"></i> jackdouma0@gmail.com
+            </a>
+        </div>
+    </footer>
+</html>
