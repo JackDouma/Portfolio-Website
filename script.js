@@ -23,9 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // make text green
         skill.classList.add('hacker-effect');
 
+        // get original text length or set to 10 if on smaller device
+        const originalTextLength = window.innerWidth <=  768 ? 10 : skill.dataset.originalText.length;
+
         // repeat function that makes the text random over and over again
         let interval = setInterval(() => {
-            skill.innerText = Array.from({ length: skill.dataset.originalText.length },
+            skill.innerText = Array.from({ length: originalTextLength },
                 () => letters[Math.floor(Math.random() * letters.length)]).join('');
         }, changeSpeed);
 
@@ -114,7 +117,7 @@ function StarEffect(e)
     let target = e.target;
     while (target) 
     {
-        if (target.tagName === 'A' || target.tagName === 'BUTTON' || (target.tagName === 'INPUT' && (target.type === 'button' || target.type === 'submit') || target.classList.contains('projectCard')))
+        if (target.tagName === 'A' || target.tagName === 'BUTTON' || (target.tagName === 'INPUT' && (target.type === 'button' || target.type === 'submit') || target.classList.contains('projectCard') || target.classList.contains('card')))
         {
             return; 
         }

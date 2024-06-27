@@ -238,61 +238,76 @@ body
 }
 
 /* about */
-.about
+.about 
 {
     margin: auto;
-    width: 50%;
-    height: auto;
+    width: 60%;
     text-align: center;
     z-index: 100;
+    padding: 0px 50px;
 }
-.about > h2
+
+.about > h2 
 {
     color: white;
     font-size: 75px;
     padding: 50px;
 }
-.about > h3
+
+.card 
 {
-    color: white;
-    font-size: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #67e8f9;
+    border-radius: 20px;
+    margin: 20px auto;
     padding: 30px;
-}
-.about > p
-{
-    text-align: left;
     color: white;
-    font-size: 20px;
-    font-size: 20px;
-    border: 10px solid white;
-    border-radius: 30px;
-    padding: 50px;
-    margin: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(5px);
+    margin: 50px auto;
 }
-.about > p > a 
+
+.card:hover 
+{
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.card > h3 
+{
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #67e8f9;
+}
+
+.card > p 
+{
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.card > a 
 {
     text-decoration: none;
     font-weight: 600;
-    color: white;
-}
-.about > p > a:hover 
-{
     color: #67e8f9;
-    text-decoration: none;
 }
 
-/* photo gallery */
+.card > a:hover 
+{
+    color: #ffffff;
+}
+
 .gallery 
 {
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 1000px;
     margin: 40px auto;
     overflow: hidden;
-    border: 5px solid white;
-    border-radius: 10px;
+    border: 2px solid #67e8f9;
+    border-radius: 20px;
     z-index: 100;
 }
 
@@ -311,7 +326,7 @@ body
     box-sizing: border-box;
 }
 
-.slide img 
+.slide > img 
 {
     width: 100%;
     display: block;
@@ -324,7 +339,7 @@ body
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    color: #67e8f9;
     border: none;
     padding: 20px;
     cursor: pointer;
@@ -346,6 +361,8 @@ body
 {
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+
 
 /* Footer */
 .footer 
@@ -379,7 +396,7 @@ body
     align-items: center;
 }
 
-.footerLink i 
+.footerLink > i 
 {
     margin-right: 8px;
 }
@@ -487,7 +504,7 @@ body
     padding: 30px;
 }
 
-.projectInfo h2 
+.projectInfo > h2 
 {
     color: white;
     font-size: 3rem;
@@ -495,7 +512,7 @@ body
     text-align: center;
 }
 
-.projectInfo p 
+.projectInfo > p 
 {
     color: white;
     font-size: 1.5rem;
@@ -516,7 +533,7 @@ body
     padding: 15px 30px;
     text-decoration: none;
     border-radius: 5px;
-    margin-top: auto;
+    margin-top: 20px;
     align-self: center;
     font-size: 1.5rem;
 }
@@ -526,7 +543,7 @@ body
     background-color: #0056b3;
 }
 
-.projectImage img 
+.projectImage > img 
 {
     width: 100%;
     height: 400px;
@@ -534,3 +551,295 @@ body
     border-radius: 10px;
 }
 
+/* Responsive Design */
+@media (max-width: 1200px) 
+{
+    .header 
+    {
+        padding: 20px 50px;
+    }
+
+    .navbar > a 
+    {
+        font-size: 32px;
+        margin-right: 50px;
+    }
+
+    .title > h1 
+    {
+        font-size: 80px;
+    }
+
+    .about 
+    {
+        width: 80%;
+        padding: 0 20px;
+    }
+
+    .about > h2 
+    {
+        font-size: 60px;
+        padding: 30px;
+    }
+
+    .card >h3 
+    {
+        font-size: 35px;
+    }
+
+    .card > p 
+    {
+        font-size: 16px;
+    }
+
+    .skillGrid
+     {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projectCard .projectInfo > h2
+     {
+        font-size: 2.5rem;
+    }
+
+    .projectCard .projectInfo > p 
+    {
+        font-size: 1.2rem;
+    }
+
+    .projectCard .projectInfo .githubLink 
+    {
+        font-size: 1.2rem;
+    }
+    .prev, .next 
+    {
+        padding: 18px;
+    }
+    .footer
+    {
+        position: relative;
+    }
+}
+
+@media (max-width: 768px) 
+{
+    .header 
+    {
+        padding: 15px 40px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar 
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar > a 
+    {
+        font-size: 28px;
+        margin-right: 25px;
+        margin-bottom: 20px;
+    }
+
+    .title 
+    {
+        height: 50vh;
+    }
+
+    .title > h1 
+    {
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .about 
+    {
+        width: 90%;
+        padding: 0 10px;
+    }
+
+    .about > h2 
+    {
+        font-size: 50px;
+        padding: 20px;
+    }
+
+    .card 
+    {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .card > h3 
+    {
+        font-size: 30px;
+    }
+
+    .card > p 
+    {
+        font-size: 14px;
+    }
+
+    .gallery 
+    {
+        max-width: 100%;
+    }
+
+    .expertise 
+    {
+        width: 90%;
+    }
+
+    .expertise > h2 
+    {
+        font-size: 60px;
+        padding: 20px;
+    }
+
+    .skillGrid 
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .projects 
+    {
+        gap: 40px;
+    }
+
+    .projectCard 
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projectCard .infoLeft .projectInfo,
+    .projectCard .infoRight .projectInfo,
+    .projectCard .infoLeft .projectImage,
+    .projectCard .infoRight .projectImage 
+    {
+        order: 1;
+        padding: 0;
+    }
+
+    .projectCard .projectInfo 
+    {
+        padding: 20px;
+    }
+
+    .projectCard .projectImage > img 
+    {
+        height: 300px;
+    }
+
+    .projectCard .projectInfo > h2 
+    {
+        font-size: 2rem;
+    }
+
+    .projectCard .projectInfo > p
+    {
+        font-size: 1rem;
+    }
+
+    .projectCard .projectInfo .githubLink 
+    {
+        font-size: 1rem;
+        padding: 15px 25px;
+    }
+    .footerContent 
+    {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .prev, .next 
+    {
+        padding: 14px;
+        font-size: 20px;
+    }
+    .footerLink 
+    {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) 
+{
+    .header 
+    {
+        padding: 15px 30px;
+    }
+
+    .navbar > a 
+    {
+        font-size: 20px;
+        margin-right: 5px;
+        margin-bottom: 15px;
+    }
+
+    .title > h1 
+    {
+        font-size: 50px;
+    }
+
+    .about > h2 
+    {
+        font-size: 40px;
+        padding: 15px;
+    }
+
+    .card > h3 
+    {
+        font-size: 25px;
+    }
+
+    .card > p 
+    {
+        font-size: 12px;
+    }
+
+    .expertise > h2 
+    {
+        font-size: 50px;
+    }
+
+    .projects 
+    {
+        gap: 30px;
+    }
+
+    .projectCard .projectImage > img 
+    {
+        height: 200px;
+    }
+
+    .projectCard .projectInfo > h2 
+    {
+        font-size: 1.5rem;
+    }
+
+    .projectCard .projectInfo > p 
+    {
+        font-size: 0.8rem;
+    }
+
+    .projectCard .projectInfo .githubLink 
+    {
+        font-size: 0.8rem;
+        padding: 10px 20px;
+    }
+    .footerContent 
+    {
+        padding: 0 10px;
+    }
+    .prev, .next 
+    {
+        padding: 10px;
+        font-size: 16px;
+    }
+    .footerLink 
+    {
+        font-size: 16px;
+    }
+}
