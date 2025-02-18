@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // letter listener
-    document.querySelectorAll('.letter').forEach(span => {
+    document.querySelectorAll('.word').forEach(span => {
         span.addEventListener('mouseenter', applyHackerEffect);
     });
 
@@ -95,28 +95,32 @@ function startShootingStars()
 // applies hacker effect to a letter
 function applyHackerEffect(event) 
 {
-    const letter = event.target;
-    const originalText = letter.textContent;
+    const word = event.target;;
+    const originalText = word.textContent;;
 
-    // change letter fast
+    // change letters fast
     let interval = setInterval(() => {
-        letter.textContent = getRandomLetter();
-        console.log("test");
-    }, 50);
+        word.textContent = getRandomWord(originalText.length);
+    }, 100);
 
-    // when the mouse leaves hover, go back to original letter
-    letter.addEventListener('mouseleave', () => {
+    // when the mouse leaves hover, go back to original word
+    word.addEventListener('mouseleave', () => {
         clearInterval(interval);
-        letter.textContent = originalText;
+        word.textContent = originalText;
     });
 }
 
 // gets random letter from list
-function getRandomLetter() 
-{
-    const letters = "abcdefghijklmnopqrstuvwxyz";
-    const randomIndex = Math.floor(Math.random() * letters.length);
-    return letters[randomIndex];
+function getRandomWord(length) {
+    const characters = "0101010101010101!@#$%?";
+    let randomWord = "";
+
+    for (let i = 0; i < length; i++) 
+    {
+        randomWord += characters[Math.floor(Math.random() * characters.length)];
+    }
+
+    return randomWord;
 }
 
 // create and place stars randomly for background

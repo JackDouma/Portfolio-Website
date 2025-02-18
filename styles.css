@@ -237,7 +237,7 @@ input:checked + .slider::before
     color: #00aaff;
     cursor: default;
 }
-.letter:hover 
+.word:hover 
 {
     color: green;
 }
