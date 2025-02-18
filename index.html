@@ -7,117 +7,153 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="This is a portfolio website for Jackson Douma">
-        <meta name="keywords" content="Jackson Douma, Jack Douma, Portfolio Website, Georgian College, Lakehead University, Computer Science, Software Development, Website Development">
-        <meta name="author" content="Jackson Douma">
         <title>Home | Jackson Douma</title>
         <script src="script.js"></script>
         <link rel="stylesheet" href="styles.css">
         <script src="https://kit.fontawesome.com/df4d629805.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
 
     <!---------->
     <!-- Body -->
     <!---------->
+
     <body>
-        <div onmousemove="MouseEffects(event)">
-            <!-- header -->
-            <header class="header">
-                <nav class="navbar">
-                    <a href="index.html">Home</a>
-                    <a href="expertise.html">Expertise</a>
-                    <a href="projects.html">Projects</a>
-                </nav>
-            </header>
-            <section class="title">
-                <h1><span class="type"></span></h1>
-            </section>
-            <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-            <script>
-                // from https://github.com/mattboldt/typed.js
-                var typed = new Typed (".type",{
-                    strings: ["Jackson Douma"],
-                    typeSpeed: 150,
-                    looped: false
-                });
-            </script>
-            <!----------->
-            <!-- about -->
-            <!----------->
-            <section class="about">
-                <h2>About me</h2>
-                <div class="card">
-                    <h3>Experience</h3>
-                    <p>
-                        I am a fourth year Lakehead University student pursuing a degree in Honours Bachelor in Computer Science. Additionally, I have a computer programming degree at Georgian College.
-                        I have experience working on a number of different large scale projects, including software, website,
-                        and mobile development working in a team and working individually. I have knowledge in almost all the most commonly used languages we use today, 
-                        such as C#, C++, Java, and Python, and have strong knowledge in databases using SQL, JSON, and XML. 
-                        I also have knowledge in different methods of building websites, such as ASP.NET, JavaScript, PHP, Bootstrap, and CSS. A full list can be viewed <a href="expertise.html">Here</a>.
-                        I am looking for full time co-op opportunities starting in summer 2025, and part time opportunities during the school year.<br><br>
-                        In addition to these technical abilities, I am capable of being organized and efficient in completing tasks independently, 
-                        I have strong communication, written, and verbal skills, and I’m also very reliable and dependable in completing tasks on time.<br><br>
-                        I am ready to take on a new challenge and put what I have learned to the test at an organization. 
-                        I look forward to learning new skills and getting valuable working experience in the industry.
-                    </p>
-                </div>
-                <div class="card">
-                    <h3>Hobbies</h3>
-                    <p>
-                        I have been playing Hockey for 15 years mostly as a goaltender. I use to play rep hockey, and currently play for my school team.<br><br>
-                        I am also the team manager for the Esports club at the school, the Georgian CyberGrizzlies, where I am in charge of all the teams that play for the school.
-                        I am responsible for scheduling scrimmages, running tryouts, coordinating with the marketing team, and helping the players in any other way.<br><br>
-                        I have also been a tester at <a href="https://x.com/MCChampionship_" target="_blank">MC Championship</a> for 5 years, where we play test, look for bugs, and give feedback on games
-                        that popular influencer will play and broadcast in official events. 
-                    </p>
-                </div>
-                <div class="gallery">
-                    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-                    <ul class="slides">
-                        <li class="slide">
-                            <img src="img/image1.jpg" alt="Image 1">
-                        </li>
-                        <li class="slide">
-                            <img src="img/image2.jpg" alt="Image 2">
-                        </li>
-                        <li class="slide">
-                            <img src="img/image3.jpg" alt="Image 3">
-                        </li>
-                        <li class="slide">
-                            <img src="img/image4.jpg" alt="Image 4">
-                        </li>
-                        <li class="slide">
-                            <img src="img/image5.jpg" alt="Image 5">
-                        </li>
-                        <li class="slide">
-                            <img src="img/image6.jpg" alt="Image 6">
-                        </li>
+        <header>
+            <!-- navigation -->
+            <nav>
+                <h1 class="navTitle">Jackson Douma</h1>
+
+                <button class="hamburger" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="navRight">
+                    <ul class="navElements">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
-                    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                    <label class="modeToggle">
+                        <input type="checkbox" id="toggle">
+                        <span class="slider"></span>
+                        <span class="info">Space Theme</span>
+                    </label>
                 </div>
-            </section> 
-            <br><br><br><br><br>          
-        </div>
+            </nav>
+        </header>
+
+        <main>
+            <!-- intro -->
+            <section class="intro">
+                <h3>I am a</h3>
+                <h2>
+                    <span class="letter">C</span><span class="letter">o</span><span class="letter">m</span><span class="letter">p</span><span class="letter">u</span><span class="letter">t</span><span class="letter">e</span><span class="letter">r</span><span> </span><span class="letter">S</span><span class="letter">c</span><span class="letter">i</span><span class="letter">e</span><span class="letter">n</span><span class="letter">c</span><span class="letter">e</span> student in Ontario
+                </h2>
+                
+                <h2>and I want to work for you</h2>
+
+                <div class="introButtons">
+                    <a href="contact.html">Get in Touch</a>
+                    <a href="projects.html">View my Work</a>
+                </div>
+
+                <div class="socials">
+                    <a href="https://www.linkedin.com/in/jack-douma-10204722b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/JackDouma" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </section>
+
+            <!-- education -->
+            <section class="education">
+                <h2>My Education</h2>
+            
+                <div class="border"></div>
+
+                <!-- First School -->
+                <div class="school">
+                    <img src="img/lakehead.png" alt="Lakhead Logo" class="schoolImage">
+                    <div class="schoolInfo">
+                        <h3>Lakehead University</h3>
+                        <p class="schoolDegree">Honours Bachelor of Computer Science</p>
+                        <p class="schoolYear">2023 - 2025</p>
+                        <p class="schoolDescription">I studied the theory of software and computer hardware. I learned about Artificial Intelligence, Data Science, Algorithm Design, and many other data driven topics in computer science. </p>
+                    </div>
+                </div>
+            
+                <div class="border"></div>
+                <!-- Second School -->
+                <div class="school">
+                    <img src="img/georgian.png" alt="Georgian Logo" class="schoolImage">
+                    <div class="schoolInfo">
+                        <h3>Georgian College</h3>
+                        <p class="schoolDegree">Computer Programming Diploma</p>
+                        <p class="schoolYear">2021-2023</p>
+                        <p class="schoolDescription">I got hands on experience creating computer applications using Java, JavaFx, C#, React, SQL, and ASP.NET. I learned about industry standard programming and fundamental coding knowledge for creating websites and software.</p>
+                    </div>
+                </div>
+
+                <div class="border"></div>
+
+            </section>
+
+            <!-- interests -->
+            <section class="interests">
+                <h2>What I am interested in</h2>
+                <div class="interestContainer">
+                    <div class="interest">
+                        <h3>Website Development</h3>
+                        <p>Building websites is a very big interest of mine. I have been creating websites for 4 years using HTML, CSS, and JS. I have used the frameworks, React, Express, Angular, node.js, Next.js and Bootstrap. Overall, I am better at backend then frontend, but I do enjoy the process of full stack development as well.</p>
+                    </div>
+                    <div class="interest">
+                        <h3>Software Engineering</h3>
+                        <p>I have been creating software for 7 years. I have the very most experience in JavaFX and ASP.NET using C#. I also know some other languages such as Python, C++, C, and Kotlin. I really enjoy working on CRUD, OOP, and MVC applications, and the process of designing software before jumping into the code like making UML, use case, and state diagrams is very interesting.</p>
+                    </div>
+                    <div class="interest">
+                        <h3>Data Science</h3>
+                        <p>I have been working on data driven projects for 2 years doing stuff like data visualization, recommender systems, and machine learning. My favourite way to store data is with SQL, but I have experience storing and retriving data in other ways like JSON, XML, and CSV. In terms of AI I have worked on deep learning, supervised learning, and unsupervised learning.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- resume -->
+            <section class="resume">
+                <h2>My Resume</h2>
+                <p>Learn more about my experience, skills, and projects.</p>
+                <div class="resumeView">
+                    <a href="documents/JacksonDoumaResume.pdf" target="_blank" class="resumeButton">
+                        <i class="fas fa-file-download"></i> View Resume
+                    </a>
+                </div>
+            </section>
+
+            <!-- classes -->
+            <section class="classes">
+                <h2>Classes I have taken</h2>
+                <div class="classContainer">
+                    <div class="takenClass"><a href="class/software-engineering.html">Software Engineering</a></div>
+                    <div class="takenClass"><a href="class/artificial-intelligence.html">Artificial Intelligence</a></div>
+                    <div class="takenClass"><a href="class/big-data.html">Big Data</a></div>
+                    <div class="takenClass"><a href="class/server-side-scripting.html">Server-Side Scripting</a></div>
+                    <div class="takenClass"><a href="class/javascript-frameworks.html">Javascript Frameworks</a></div>
+                    <div class="takenClass"><a href="class/advanced-java.html">Advanced Java</a></div>
+                    <div class="takenClass"><a href="class/data-structures.html">Data Structures</a></div>
+                    <div class="takenClass"><a href="class/networking-essentials.html">Networking Essentials</a></div>
+                    <div class="takenClass"><a href="class/mobile-computing.html">Mobile Computing</a></div>
+                    <div class="takenClass"><a href="class/cloud-computing.html">Cloud Computing</a></div>
+                    <div class="takenClass"><a href="class/data-science.html">Data Science</a></div>
+                    <div class="takenClass"><a href="class/cryptography.html">Cryptography</a></div>
+                    <div class="takenClass"><a href="class/web-health.html">Web Health Informatics</a></div>
+                    <div class="takenClass"><a href="class/operating-systems.html">Operating Systems</a></div>
+                    <div class="takenClass"><a href="class/algorithm-design.html">Algorithm Design</a></div>
+                    <div class="takenClass"><a href="class/assembly-language.html">Assembly Language</a></div>
+                    <div class="takenClass"><a href="class/computer-networks.html">Computer Networks</a></div>
+                    <div class="takenClass"><a href="class/game-programming.html">Game Programming</a></div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Jackson Douma Portfolio Website | <a href="contact.html">Contact Me</a></p>
+        </footer>
     </body>
-    <!------------>
-    <!-- Footer -->
-    <!------------>
-    <footer class="footer">
-        <div class="footerContent">
-            <a href="https://www.linkedin.com/in/jack-douma-10204722b/" target="_blank" class="footerLink">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://github.com/JackDouma" target="_blank" class="footerLink">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="JacksonDoumaResume.pdf" target="_blank" download class="footerLink">
-                <i class="fas fa-file-download"></i> Resume
-            </a>
-            <a href="tel:+17053215945" class="footerLink">
-                <i class="fas fa-phone-alt"></i> 705-321-5945
-            </a>
-            <a href="mailto:jackdouma0@gmail.com" class="footerLink">
-                <i class="fas fa-envelope"></i> jackdouma0@gmail.com
-            </a>
-        </div>
-    </footer>
 </html>

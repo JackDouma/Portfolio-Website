@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!------------>
+    <!-- Header -->
+    <!------------>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="This is a portfolio website for Jackson Douma">
+        <title>Computer Networks | Jackson Douma</title>
+        <script src="../script.js"></script>
+        <link rel="stylesheet" href="../styles.css">
+        <script src="https://kit.fontawesome.com/df4d629805.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+
+    <!---------->
+    <!-- Body -->
+    <!---------->
+    <body>
+        <header>
+            <!-- navigation -->
+            <nav>
+                <h1 class="navTitle">Jackson Douma</h1>
+
+                <button class="hamburger" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="navRight">
+                    <ul class="navElements">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../projects.html">Projects</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                    <label class="modeToggle">
+                        <input type="checkbox" id="toggle">
+                        <span class="slider"></span>
+                        <span class="info">Space Theme</span>
+                    </label>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <!-- class info -->
+            <section class="classInfo">
+                <h2>Computer Networks and Distributed</h2>
+                <p class="classDate">Taken: Fall 2023</p>
+
+                <div class="classContent">
+                    <img src="../img/ComputerNetworks.jpg" alt="Computer Networks Image" class="classImage">
+                    
+                    <div class="classDescription">
+                        <p>
+                            An introduction to the concepts of Computer Networks: LAN, WAN, communi-
+                            cation protocols, inter-process communication/synchronization. Concurrent pro-
+                            gramming and distributed systems. Real-time systems.
+                        </p>
+
+                        <a href="../documents/ComputerNetworks.pdf" target="_blank" class="syllabusButton">
+                            <i class="fas fa-file-download"></i> View Syllabus
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Jackson Douma Portfolio Website | <a href="../contact.html">Contact Me</a></p>
+        </footer>
+    </body>
+</html>

@@ -1,178 +1,122 @@
-let currentIndex = 0;
-let lastStar = 0;
-let lastGlow = 0;
+// Jackson Douma
+// Portfolio Website JS
+// February 17, 2025
 
-// run on page load
-document.addEventListener('DOMContentLoaded', function() {
-    //////////////////////////
-    // create space effects //
-    //////////////////////////
-    createBackgroundStars();
-    randomShootingStars();
+let shootingStarInterval;
 
-    //////////////////////////
-    // create hacker effect //
-    //////////////////////////
-    const skills = document.querySelectorAll('.skill');
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&?";
-    const changeSpeed = 100;
-    const revealDelay = 500;
+document.addEventListener("DOMContentLoaded", function() {
+    const toggle = document.getElementById("toggle");
+    const savedTheme = localStorage.getItem("theme");
+    const menuToggle = document.getElementById("menuToggle");
+    const navRight = document.querySelector(".navRight");
 
-
-    const applyHackerEffect = (skill) => {
-        // make text green
-        skill.classList.add('hacker-effect');
-
-        // get original text length or set to 10 if on smaller device
-        const originalTextLength = window.innerWidth <=  768 ? 10 : skill.dataset.originalText.length;
-
-        // repeat function that makes the text random over and over again
-        let interval = setInterval(() => {
-            skill.innerText = Array.from({ length: originalTextLength },
-                () => letters[Math.floor(Math.random() * letters.length)]).join('');
-        }, changeSpeed);
-
-        return interval;
-    };
-
-    // save original text
-    skills.forEach(skill => {
-        skill.dataset.originalText = skill.innerText;
-    });
-
-    // give all text the hacker effect
-    let intervals = [];
-    skills.forEach(skill => {
-        intervals.push(applyHackerEffect(skill));
-    });
-
-    // reveal original words 1 by 1
-    let currentIndex = 0;
-    const revealNextWord = () => {
-        if (currentIndex < skills.length) 
+    // get saved theme and apply
+    if (savedTheme) 
+    {
+        if (savedTheme === "space") 
         {
-            clearInterval(intervals[currentIndex]);
-            skills[currentIndex].innerText = skills[currentIndex].dataset.originalText;
-            skills[currentIndex].classList.remove('hacker-effect');
-
-            currentIndex++;
-            setTimeout(revealNextWord, revealDelay);
+            applySpaceTheme();
+        } 
+        else 
+        {
+            applyDarkTheme();
         }
-    };
+    }
 
-    setTimeout(revealNextWord, revealDelay);
+    // background listener 
+    toggle.addEventListener("change", function() {
+        if (toggle.checked) 
+        {
+            applySpaceTheme();
+        } 
+        else 
+        {
+            applyDarkTheme();
+        }
+    });
+
+    // letter listener
+    document.querySelectorAll('.letter').forEach(span => {
+        span.addEventListener('mouseenter', applyHackerEffect);
+    });
+
+    // menu listener for phones
+    menuToggle.addEventListener("click", function () {
+        navRight.classList.toggle("active");
+    });
+
+    // click outside hamburger listener
+    document.addEventListener("click", function (event) {
+        if (!navRight.contains(event.target) && !menuToggle.contains(event.target)) 
+        {
+            navRight.classList.remove("active");
+        }
+    });
 });
 
-function changeSlide(direction) 
+function applyDarkTheme()
 {
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-    
-    currentIndex += direction;
+    const info = document.querySelector(".info");
+    const toggle = document.getElementById("toggle");
 
-    if (currentIndex < 0) 
-    {
-        currentIndex = totalSlides - 1;
-    } 
-    else if (currentIndex >= totalSlides) 
-    {
-        currentIndex = 0;
-    }
-
-    const offset = -currentIndex * 100;
-    document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
+    toggle.checked = false;
+    document.body.style.background = "linear-gradient(to right, #12100E, #263752)";
+    info.textContent = "Space Theme";
+    localStorage.setItem("theme", "dark");
+    removeBackgroundStars();
+    stopShootingStars();
 }
 
-document.querySelector('.prev').addEventListener('click', () => changeSlide(-1));
-document.querySelector('.next').addEventListener('click', () => changeSlide(1));
-
-// pick random colour
-function RandomColour(colours)
+function applySpaceTheme()
 {
-    const random = Math.floor(Math.random() * colours.length);
-    return colours[random];
+    const info = document.querySelector(".info");
+    const toggle = document.getElementById("toggle");
+
+    toggle.checked = true;
+    document.body.style.background = "linear-gradient(to right, #09162a, #0d284d, #113b72, #194f99)";
+    info.textContent = "Dark Theme";
+    localStorage.setItem("theme", "space");
+    createBackgroundStars();
+    startShootingStars();
 }
 
-// this function is called when the mouse moves
-function MouseEffects(e)
+// create shooting stars at random intervals
+function startShootingStars() 
 {
-    StarEffect(e);
-    GlowEffect(e);
-}
-
-// creates a fancy star effect
-function StarEffect(e) 
-{
-    // make sure stars do not appear to close together
-    let time = new Date().getTime();
-
-    if (time - lastStar < 100)
-    {
-        return;
-    }
-
-    lastStar = time;
-    
-    // do not make stars while hovering over clickable
-    let target = e.target;
-    while (target) 
-    {
-        if (target.tagName === 'A' || target.tagName === 'BUTTON' || (target.tagName === 'INPUT' && (target.type === 'button' || target.type === 'submit') || target.classList.contains('projectCard') || target.classList.contains('card')))
+    // 25% chance every 3 seconds
+    shootingStarInterval = setInterval(() => {
+        if (Math.random() > 0.75) 
         {
-            return; 
+            createShootingStar();
         }
+    }, 3000); 
+}
 
-        target = target.parentElement;
-    }
+// applies hacker effect to a letter
+function applyHackerEffect(event) 
+{
+    const letter = event.target;
+    const originalText = letter.textContent;
 
+    // change letter fast
+    let interval = setInterval(() => {
+        letter.textContent = getRandomLetter();
+        console.log("test");
+    }, 50);
 
-    // get coords
-    let x = e.clientX + window.scrollX;
-    let y = e.clientY + window.scrollY;
-    
-    // create star using https://fontawesome.com/icons/star?f=classic&s=solid
-    let star = document.createElement('i');
-    star.classList.add('star', 'fas', 'fa-star');
-
-    // randomize star colour
-    const starColours = ["#fde68a", "#f0abfc", "#f9a8d4"]
-    star.style.color = RandomColour(starColours);
-
-    // place star
-    star.style.left = x + 'px';  
-    star.style.top = y + 'px';  
-    document.body.appendChild(star);
-
-    // delete star once animation is down
-    star.addEventListener('animationend', () => {
-        document.body.removeChild(star);
+    // when the mouse leaves hover, go back to original letter
+    letter.addEventListener('mouseleave', () => {
+        clearInterval(interval);
+        letter.textContent = originalText;
     });
 }
-function GlowEffect(e)
+
+// gets random letter from list
+function getRandomLetter() 
 {
-    // make sure the glow do not appear to close together
-    let time = new Date().getTime();
-    if (time - lastGlow < 5) 
-    {
-        return;
-    }
-    lastGlow = time;
-
-    // get coords
-    let x = e.clientX + window.scrollX;
-    let y = e.clientY + window.scrollY;
-
-    let glow = document.createElement("div");
-    glow.classList.add('glow');
-    
-    glow.style.left = x + 'px';
-    glow.style.top = y + 'px';
-    document.body.appendChild(glow);
-
-    // delete glow once animation is done
-    glow.addEventListener('animationend', () => {
-        document.body.removeChild(glow);
-    });
+    const letters = "abcdefghijklmnopqrstuvwxyz";
+    const randomIndex = Math.floor(Math.random() * letters.length);
+    return letters[randomIndex];
 }
 
 // create and place stars randomly for background
@@ -197,6 +141,16 @@ function createBackgroundStars()
 
         document.body.appendChild(star);
     }
+}
+
+// remove stars
+function removeBackgroundStars() 
+{
+    const stars = document.querySelectorAll('.backgroundStar');
+
+    stars.forEach(star => {
+        document.body.removeChild(star);
+    });
 }
 
 function createShootingStar() 
@@ -242,26 +196,15 @@ function createShootingStar()
     });
 }
 
-// create shooting stars at random intervals
-function randomShootingStars() 
+function stopShootingStars() 
 {
-    // 50% chance every 3 seconds
-    setInterval(() => {
-        if (Math.random() > 0.5) 
-        {
-            createShootingStar();
-        }
-    }, 3000); 
+    // stop any future shooting stars from creating
+    clearInterval(shootingStarInterval);
+
+    // remove any current shooting stars in animation
+    const shootingStars = document.querySelectorAll('.shootingStar');
+    shootingStars.forEach(star => {
+        star.style.animation = 'none';
+        document.body.removeChild(star);
+    });
 }
-
-document.querySelector('.skill')
-
-
-
-
-
-
-
-
-
-
