@@ -311,7 +311,7 @@ input:checked + .slider::before
 }
 .schoolImage 
 {
-    width: 700px;
+    width: 800px;
     height: auto;
     object-fit: cover;
     border-radius: 10px;
@@ -919,7 +919,7 @@ footer p a:hover{
     /* home page */
     .schoolImage 
     {
-        width: 45%;
+        width: 50%;
         height: auto;
     }
     .classContainer 
@@ -968,12 +968,11 @@ footer p a:hover{
     .school 
     {
         display: flex;
-        justify-content: space-between;
         gap: 50px;
     }
     .schoolImage 
     {
-        width: 700px;
+        width: 800px;
         height: auto;
     }
     .classContainer
